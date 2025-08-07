@@ -1,4 +1,5 @@
-import 'package:fashion/core/resourses/image_named_manager.dart';
+import 'package:fashion/core/resourses/assets_named_manager.dart';
+import 'package:fashion/core/resourses/route_manager.dart';
 import 'package:fashion/feature/splace_screen/Widget/animation_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -13,19 +14,24 @@ class SpalceScreen extends StatefulWidget {
 
 class _SpalceScreenState extends State<SpalceScreen> {
   @override
+  void initState() {
+    Future.delayed(Duration(milliseconds: 900), () {
+      Navigator.of(context).pushReplacementNamed(RouteName.homeScreen);
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-            child:SvgPicture.asset(ImageNamedManager.runwayLogo,width: 188,) ,
-
+            child: SvgPicture.asset(LogoNamedManager.runwayLogo, width: 188),
           ),
           Gap(10),
           AnimtionLine(),
-
-          
         ],
       ),
     );

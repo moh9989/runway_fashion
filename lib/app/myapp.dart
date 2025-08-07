@@ -8,11 +8,11 @@ class Myapp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
+theme: ThemeData(scaffoldBackgroundColor: Colors.white),
       debugShowCheckedModeBanner: false,
       home: SpalceScreen(),
       routes: RouteManager.route,
-      initialRoute: RouteName.spalceScreen,
+      initialRoute: RouteName.categoriesScreen,
     );
   }
 }
