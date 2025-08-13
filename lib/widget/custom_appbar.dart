@@ -18,16 +18,17 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   final Color? color;
   final Widget? leading;
   final double? leadingWidth;
-
+  
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
   @override
   Widget build(BuildContext context) {
-     final double sizeHeight = MediaQuery.of(context).size.height;
+    final double sizeHeight = MediaQuery.of(context).size.height;
     final double sizeWidth = MediaQuery.of(context).size.width;
     final double sizefont = MediaQuery.of(context).size.width;
 
     return AppBar(
+      scrolledUnderElevation: 0,
       centerTitle: true,
       backgroundColor: color,
       leading: leading,
@@ -41,9 +42,10 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
             sizeFont: sizefont * .040,
             fontWeight: FontWeight.bold,
           ),
-          CustomSvg(svgImage: suffix,
-          height: sizeHeight * .05,
-          width: sizeWidth*.030,
+          CustomSvg(
+            svgImage: suffix,
+            height: sizeHeight * .03,
+            width: sizeWidth * .040,
           ),
 
           //Icon(Icons.na)

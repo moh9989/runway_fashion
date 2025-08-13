@@ -16,5 +16,36 @@ class Content {
     CatogryModel(image: ImageNamedManager.home, title: TextManager.home),
     CatogryModel(image: ImageNamedManager.deals, title: TextManager.deals),
   ];
-  static List<ProductDetailsModel> productDetailsModel = [];
+  static List<ProductDetailsModel> productDetailsModel = [
+    ProductDetailsModel(
+      image: ImageNamedManager.model1,
+      title: TextManager.topManBlack,
+      price: "€45",
+    ),
+    ProductDetailsModel(
+      image: ImageNamedManager.model2,
+      title: TextManager.deepGrayEssentialRegul,
+      price: "€23",
+    ),
+    ProductDetailsModel(
+      image: ImageNamedManager.model3,
+      title: TextManager.topManBlackWithTrous,
+      price: "€14",
+    ),
+    ProductDetailsModel(
+      image: ImageNamedManager.model4,
+      title: TextManager.grayCoatAndWhitetshirt,
+      price: "€20",
+    ),
+    ProductDetailsModel(
+      image: ImageNamedManager.model5,
+      title: TextManager.grayCoatAndWhitetshirt,
+      price: "€ 35",
+    ),
+    ProductDetailsModel(
+      image: ImageNamedManager.model6,
+      title: TextManager.grayCoatAndWhitetshirt,
+      price: "€ 35",
+    ),
+  ];
 }

@@ -12,4 +12,8 @@ class TextManager {
   static String deepGrayEssentialRegul = "Deep gray essential regul";
   static String topManBlackWithTrous = "Top man black with Trous";
   static String grayCoatAndWhitetshirt = "Gray coat and white T-shirt";
+   
+
+  ///////////////////////////////
+  
 }

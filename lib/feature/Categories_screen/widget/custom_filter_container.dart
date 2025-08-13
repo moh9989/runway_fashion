@@ -4,8 +4,8 @@ import 'package:fashion/widget/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-class CustomContainer extends StatelessWidget {
-  const CustomContainer({
+class CustomFilterContainer extends StatelessWidget {
+  const CustomFilterContainer({
     super.key,
     required this.title,
     required this.titleTwo,

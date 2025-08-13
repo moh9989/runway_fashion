@@ -1,10 +1,9 @@
 import 'package:fashion/core/resourses/assets_named_manager.dart';
 import 'package:fashion/core/resourses/content.dart';
-import 'package:fashion/core/resourses/route_manager.dart';
 import 'package:fashion/core/resourses/size_manager.dart';
 import 'package:fashion/core/resourses/text_manager.dart';
 import 'package:fashion/feature/Categories_screen/screen/Categories_screen.dart';
-import 'package:fashion/feature/home_screen/widget/custom_categories.dart';
+import 'package:fashion/feature/Categories_screen/widget/custom_categories.dart';
 import 'package:fashion/widget/custom_appbar.dart';
 import 'package:fashion/widget/custom_text.dart';
 import 'package:flutter/material.dart';
@@ -33,9 +32,15 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final double sizefont = MediaQuery.of(context).size.width;
-    // final double sizeWidth = MediaQuery.of(context).size.width;
+   
     final double sizeHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
@@ -49,7 +54,6 @@ class _HomeScreenState extends State<HomeScreen> {
       body: ListView(
         children: [
           //Gap(GapSize.gapSize27_5),
-
           InkWell(
             onTap: () {
               _controller.pause();
@@ -75,27 +79,29 @@ class _HomeScreenState extends State<HomeScreen> {
           Gap(GapSize.gapSize17),
 
           SizedBox(
-            height: sizeHeight * .9,
+            height: sizeHeight * .2,
 
             child: ListView.separated(
               physics: BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
-              separatorBuilder: (context, index) => Gap(sizeHeight * .01),
+              separatorBuilder: (context, index) => SizedBox(),
               itemCount: Content.catogryModel.length,
-              itemBuilder: (context, index) => CustomCategories(
-                title: Content.catogryModel[index].title,
-                image: Content.catogryModel[index].image,
-                ontap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => CategoriesScreen(
-                        title: Content.catogryModel[index].title,
+              itemBuilder: (context, index) {
+                var content = Content.catogryModel[index];
+                return CustomCategories(
+                  title: content.title,
+                  image: content.image,
+                  ontap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            CategoriesScreen(title: content.title),
                       ),
-                    ),
-                  );
-                },
-              ),
+                    );
+                  },
+                );
+              },
             ),
           ),
         ],
